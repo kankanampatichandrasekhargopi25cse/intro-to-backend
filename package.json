@@ -1,0 +1,26 @@
+{
+  "name": "intro-to-backend",
+  "version": "1.0.0",
+  "description": "Intro to Backend Web Development using Node.js, Express, MongoDB, and Postman",
+  "main": "backend/src/index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node backend/src/index.js",
+    "dev": "nodemon backend/src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kankanampatichandrasekhargopi25cse-ai/intro-to-backend.git"
+  },
+  "author": "Kankanampati Chandrasekhar Gopi",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "mongoose": "^8.9.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.9"
+  }
+}

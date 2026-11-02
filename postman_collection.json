@@ -1,0 +1,193 @@
+{
+  "info": {
+    "_postman_id": "a91834e2-6321-4f89-8d7b-9f82161bc712",
+    "name": "Intro to Backend - Node & Express API",
+    "description": "Complete Postman API Collection for testing Auth and Post CRUD routes taught in the tutorial.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:4000/",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "4000",
+          "path": [""]
+        },
+        "description": "Verifies that the Express server is up and running."
+      },
+      "response": []
+    },
+    {
+      "name": "1. User Authentication",
+      "item": [
+        {
+          "name": "Register User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"username\": \"chandrasekhar\",\n  \"email\": \"chandra@example.com\",\n  \"password\": \"supersecret123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/v1/users/register",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "v1", "users", "register"]
+            },
+            "description": "Registers a new user and hashes the password before saving to MongoDB."
+          },
+          "response": []
+        },
+        {
+          "name": "Login User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"chandra@example.com\",\n  \"password\": \"supersecret123\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/v1/users/login",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "v1", "users", "login"]
+            },
+            "description": "Validates user credentials by comparing bcrypt password hashes."
+          },
+          "response": []
+        },
+        {
+          "name": "Logout User",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"email\": \"chandra@example.com\"\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/v1/users/logout",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "v1", "users", "logout"]
+            },
+            "description": "Logs out the authenticated user."
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "2. Post CRUD Operations",
+      "item": [
+        {
+          "name": "Create Post (C)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Chandrasekhar\",\n  \"description\": \"My first backend post exploring Node.js, Express & MongoDB!\",\n  \"age\": 20\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/v1/posts/create",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "v1", "posts", "create"]
+            },
+            "description": "Creates a new post document in MongoDB."
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Posts (R)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/posts/getPosts",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "v1", "posts", "getPosts"]
+            },
+            "description": "Fetches all post documents stored in MongoDB."
+          },
+          "response": []
+        },
+        {
+          "name": "Update Post (U)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"description\": \"Updated post description testing CRUD update operation!\",\n  \"age\": 21\n}"
+            },
+            "url": {
+              "raw": "http://localhost:4000/api/v1/posts/update/<REPLACE_WITH_POST_ID>",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "v1", "posts", "update", "<REPLACE_WITH_POST_ID>"]
+            },
+            "description": "Updates a post document by its MongoDB ObjectId (_id)."
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Post (D)",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "http://localhost:4000/api/v1/posts/delete/<REPLACE_WITH_POST_ID>",
+              "protocol": "http",
+              "host": ["localhost"],
+              "port": "4000",
+              "path": ["api", "v1", "posts", "delete", "<REPLACE_WITH_POST_ID>"]
+            },
+            "description": "Deletes a post document by its MongoDB ObjectId (_id)."
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
